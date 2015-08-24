@@ -81,7 +81,10 @@ function makelist(valu){
 			done.parentElement.removeChild(done);
 		} catch(e)
 		{	};		
-		
+		try{
+			editlist.parentElement.removeChild(editlist);
+		} catch(e)
+		{	};
 				
 		try{
 			edit.parentElement.removeChild(edit);

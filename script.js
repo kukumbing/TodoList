@@ -26,15 +26,12 @@ function makelist(valu){
 	placeHolder.appendChild(edit);
 	edit.onclick = function(){
 		//this.parentNode.replaceChild(document.getElementById("addtask"),newlist);
+		newlist.childNodes[0].nodeValue ="";
 		newlist.parentNode.replaceChild(editlist,newlist);
 		this.parentNode.replaceChild(ok,this);	
 		
 	}
-	
-	//tạo dòng text vừa sủa
-	var editedlist = document.createElement("li");
-	
-	
+
 	
 	//tạo nút OK
 	
@@ -46,13 +43,13 @@ function makelist(valu){
 	ok.onclick = function(){
 		this.parentNode.replaceChild(edit,this);
 		//var newtext = createTextNode(editlist.value);
-		editedlist.appendChild(document.createTextNode(editlist.value));
-		editlist.parentNode.replaceChild(editedlist,editlist);
+
+		//newlist.appendChild(document.createTextNode(editlist.value));
+		newlist.childNodes[0].nodeValue =editlist.value;
+		editlist.parentNode.replaceChild(newlist,editlist);
 		
 	}
-	
-	
-	
+
 	
 	//tạo nút done
 	var xong = document.createElement("div1");
@@ -94,10 +91,7 @@ function makelist(valu){
 			ok.parentElement.removeChild(ok);
 		} catch(e)
 		{	};		
-		try{
-			editedlist.parentElement.removeChild(editedlist);
-		} catch(e)
-		{	};
+
 		try{
 			newlist.parentElement.removeChild(newlist);
 		} catch(e)
@@ -109,7 +103,7 @@ function makelist(valu){
 
 function addtask(){
 	var getvalue = document.getElementById("addtask").value;
-	if(getvalue.length>70){
+	if(getvalue.length>90){
 		alert("Công việc quá dài,chỉ được nhập không quá 90 ký tự");
 		
 		
